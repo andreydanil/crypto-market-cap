@@ -1,0 +1,64 @@
+{
+  "name": "andreydanil/coin-market-cap",
+  "description": "Coin Market Cap",
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=7.0.0",
+    "andreasindal/laravel-markdown": "^2.0",
+    "appstract/laravel-blade-directives": "^0.7.0",
+    "fideloper/proxy": "~3.3",
+    "guzzlehttp/guzzle": "^6.3",
+    "kyslik/column-sortable": "^5.5",
+    "laracasts/flash": "^3.0",
+    "laravel/framework": "5.5.*",
+    "laravel/tinker": "~1.0",
+    "laravelcollective/html": "^5.5",
+    "lastguest/murmurhash": "^2.0",
+    "mccool/laravel-auto-presenter": "^6.2",
+    "predis/predis": "^1.1",
+    "renatomarinho/laravel-page-speed": "^1.8",
+    "roumen/sitemap": "^2.7"
+  },
+  "autoload": {
+    "classmap": [
+      "database/seeds",
+      "database/factories"
+    ],
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "dont-discover": [
+      ]
+    }
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+      "php artisan optimize"
+    ],
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@php artisan key:generate"
+    ],
+    "post-autoload-dump": [
+      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+      "@php artisan package:discover"
+    ]
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
